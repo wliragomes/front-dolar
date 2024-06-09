@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import { ChakraProvider, Box, Flex, Center } from "@chakra-ui/react";
 import Home from './components/home';
 import CadastroTMS from './components/cadastroTMS';
@@ -17,11 +17,12 @@ function App() {
                             <Link to="/cadastro-tms">Cadastro TMS</Link>
                         </Box>
                     </Flex>
-                    <Flex align="center" justify="center" bg="blackAlpha.200" h="calc(100vh - 72px)">
+                    <Flex align="center" justify="center" bg="blackAlpha.200">
                         <Center w="100%" maxW={840} bg="white" borderRadius={5} p="6" boxShadow="0 1px 2px #ccc">
                             <Routes>
                                 <Route path="/" element={<Home />} />
                                 <Route path="/cadastro-tms" element={<CadastroTMS />} />
+                                <Route path="*" element={<Navigate to="/cadastro-tms" />} />
                             </Routes>
                         </Center>
                     </Flex>

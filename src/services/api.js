@@ -14,7 +14,17 @@ export const getTMRData = async (pageNumber, pageSize) => {
         });
         return response.data;
     } catch (error) {
-        console.error('Erro ao buscar dados da API:', error);
+        console.error('Erro ao buscar dados da API pagination:', error);
+        throw error;
+    }
+};
+
+export const getPrevisaoData = async () => {
+    try {
+        const response = await api.get(`/TMR/get-previsao`);
+        return response.data;
+    } catch (error) {
+        console.error('Erro ao buscar dados da API previsao:', error);
         throw error;
     }
 };
